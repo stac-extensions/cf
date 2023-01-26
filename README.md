@@ -1,4 +1,4 @@
-# Template Extension Specification
+# CF Extension Specification
 
 - **Title:** CF
 - **Identifier:** <https://stac-extensions.github.io/cf/v1.0.0/schema.json>
@@ -7,7 +7,7 @@
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @Fred-Leclercq
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
+This document explains the CF Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
 This is the place to add a short introduction.
 
 - Examples:
