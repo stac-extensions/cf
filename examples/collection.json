@@ -1,9 +1,6 @@
 {
   "stac_version": "1.0.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
-  ],
+  "stac_extensions": [],
   "type": "Collection",
   "id": "collection",
   "title": "A title",
@@ -29,21 +26,29 @@
       ]
     }
   },
-  "template:new_field": "test",
-  "template:xyz": {
-    "x": 1,
-    "y": 2,
-    "z": 3
-  },
-  "template:another_one": [
-    1,
-    2,
-    3
+  "cf:parameter": [
+    {
+      "name": "sea_surface_temperature",
+      "unit": "K"
+    },
+    {
+      "name": "depth",
+      "unit": "m"
+    }
   ],
   "assets": {
     "example": {
       "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
+      "cf:parameter": [
+        {
+          "name": "sea_surface_temperature",
+          "unit": "K"
+        },
+        {
+          "name": "depth",
+          "unit": "m"
+        }
+      ]
     }
   },
   "item_assets": {
@@ -51,7 +56,16 @@
       "roles": [
         "data"
       ],
-      "template:new_field": "test"
+      "cf:parameter": [
+        {
+          "name": "sea_surface_temperature",
+          "unit": "K"
+        },
+        {
+          "name": "depth",
+          "unit": "m"
+        }
+      ]
     }
   },
   "summaries": {

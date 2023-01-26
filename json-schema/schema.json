@@ -26,7 +26,7 @@
                 {
                   "$comment": "Require fields here for Item Properties.",
                   "required": [
-                    "template:new_field"
+                    "cf:parameter"
                   ]
                 },
                 {
@@ -70,7 +70,7 @@
             {
               "$comment": "Require fields here for Collections (top-level).",
               "required": [
-                "template:new_field"
+                "cf:parameter"
               ]
             },
             {
@@ -160,41 +160,17 @@
     "require_any_field": {
       "$comment": "Please list all fields here so that we can force the existence of one of them in other parts of the schemas.",
       "anyOf": [
-        {"required": ["template:new_field"]},
-        {"required": ["template:xyz"]},
-        {"required": ["template:another_one"]}
+        {"required": ["cf:parameter"]}
       ]
     },
     "fields": {
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
-        "template:new_field": {
-          "type": "string"
-        },
-        "template:xyz": {
-          "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
-          "properties": {
-            "x": {
-              "type": "number"
-            },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
-            }
-          }
-        },
-        "template:another_one": {
+        "cf:parameter": {
           "type": "array",
           "items": {
-            "type": "number"
+            "type": "object"
           }
         }
       },

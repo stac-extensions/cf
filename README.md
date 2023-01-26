@@ -1,11 +1,11 @@
 # Template Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
+- **Title:** CF
+- **Identifier:** <https://stac-extensions.github.io/cf/v1.0.0/schema.json>
+- **Field Name Prefix:** cf
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @Fred-Leclercq
 
 This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
 This is the place to add a short introduction.
@@ -20,41 +20,35 @@ This is the place to add a short introduction.
 
 The fields in the table below can be used in these parts of STAC documents:
 - [ ] Catalogs
-- [x] Collections
+- [ ] Collections
 - [x] Item Properties (incl. Summaries in Collections)
 - [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name           | Type                      | Description |
-| -------------------- | ------------------------- | ----------- |
-| template:new_field   | string                    | **REQUIRED**. Describe the required field... |
-| template:xyz         | [XYZ Object](#xyz-object) | Describe the field... |
-| template:another_one | \[number]                 | Describe the field... |
+| Field Name           | Type                     | Description                         |
+|----------------------|--------------------------|-------------------------------------|
+| cf:parameter         | [CF Object](#CF-object) | **REQUIRED**. CF Standard Name Table |
 
 ### Additional Field Information
+#### cf:parameter
 
-#### template:new_field
+The cf:parameter array is used to describe the parameters in an Asset. This enables clients to read
+the file and understand which parameters are available. 
 
-This is a much more detailed description of the field `template:new_field`...
+The cf:parameter array may optionally be used in the Item Properties to summarize the available parameters in the assets.
+This should be a 'union' of all the possible parameters represented in assets. It should be considered merely informative - clients should rely on 
+the cf:parameter of each asset.  
+An Item is only allowed to use cf:parameter in its Properties if it has at least one asset with a defined parameter array.
 
-### XYZ Object
+#### CF Object
 
-This is the introduction for the purpose and the content of the XYZ Object...
+This object should contain a variable name from the [CF list](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html) 
+and where applicable a unit from the  [UDUNITS-2 database](https://docs.unidata.ucar.edu/udunits/current/)
 
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| x           | number | **REQUIRED**. Describe the required field... |
-| y           | number | **REQUIRED**. Describe the required field... |
-| z           | number | **REQUIRED**. Describe the required field... |
-
-## Relation types
-
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type                | Description |
-| ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+| Field Name | Type   | Description                                                                                   |
+|------------|--------|-----------------------------------------------------------------------------------------------|
+| name       | string | **REQUIRED**. Should be a value from the CF standard names list                               |
+| unit       | string | Indicates the unit, preferably available in the database from the UDUNITS-2 package (unidata) |
 
 ## Contributing
 
