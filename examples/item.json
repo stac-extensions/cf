@@ -57,8 +57,8 @@
   ],
   "assets": {
     "data": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
+      "href": "https://example.com/examples/file.nc",
+      "type": "application/netcdf"
     }
   }
 }
