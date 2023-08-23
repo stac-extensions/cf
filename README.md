@@ -20,25 +20,26 @@ This is the place to add a short introduction.
 
 The fields in the table below can be used in these parts of STAC documents:
 - [ ] Catalogs
-- [ ] Collections
+- [x] Collections
 - [x] Item Properties (incl. Summaries in Collections)
 - [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name           | Type                     | Description                         |
-|----------------------|--------------------------|-------------------------------------|
-| cf:parameter         | [CF Object](#CF-object) | **REQUIRED**. CF Standard Name Table |
+| Field Name   | Type                        | Description                          |
+| ------------ | --------------------------- | ------------------------------------ |
+| cf:parameter | \[[CF Object](#CF-object)\] | **REQUIRED**. CF Standard Name Table |
 
 ### Additional Field Information
+
 #### cf:parameter
 
-The cf:parameter array is used to describe the parameters in an Asset. This enables clients to read
+The `cf:parameter` array is used to describe the parameters in an Asset. This enables clients to read
 the file and understand which parameters are available. 
 
-The cf:parameter array may optionally be used in the Item Properties to summarize the available parameters in the assets.
+The `cf:parameter` array may optionally be used in the Item Properties or Collection to summarize the available parameters in the assets.
 This should be a 'union' of all the possible parameters represented in assets. It should be considered merely informative - clients should rely on 
-the cf:parameter of each asset.  
-An Item is only allowed to use cf:parameter in its Properties if it has at least one asset with a defined parameter array.
+the `cf:parameter` of each asset.  
+An Item or Collection is only allowed to use `cf:parameter` in its Properties if it has at least one asset with a defined parameter array.
 
 #### CF Object
 
