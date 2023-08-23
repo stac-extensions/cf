@@ -1,174 +1,141 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/cf/v1.0.0/schema.json#",
+  "$id": "https://stac-extensions.github.io/cf/v0.1.0/schema.json#",
   "title": "CF Extension",
   "description": "STAC CF Extension for STAC Items and STAC Collections.",
+  "type": "object",
+  "required": [
+    "stac_extensions"
+  ],
+  "properties": {
+    "stac_extensions": {
+      "type": "array",
+      "contains": {
+        "const": "https://stac-extensions.github.io/cf/v0.1.0/schema.json"
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/fields"
+      }
+    }
+  },
   "oneOf": [
     {
-      "$comment": "This is the schema for STAC Items. Remove this object if this extension only applies to Collections.",
-      "allOf": [
-        {
-          "$ref": "#/definitions/stac_extensions"
-        },
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "properties",
-            "assets"
-          ],
-          "properties": {
-            "type": {
-              "const": "Feature"
-            },
-            "properties": {
-              "allOf": [
-                {
-                  "$comment": "Require fields here for Item Properties.",
-                  "required": [
-                    "cf:parameter"
-                  ]
-                },
-                {
-                  "$ref": "#/definitions/fields"
-                }
-              ]
-            },
-            "assets": {
-              "$comment": "This validates the fields in Item Assets, but does not require them.",
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "$comment": "This is the schema for STAC Collections.",
+      "$comment": "Schema for Collections",
       "type": "object",
-      "allOf": [
-        {
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "const": "Collection"
-            }
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "const": "Collection"
+        },
+        "item_assets": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/fields"
           }
         },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        }
-      ],
-      "anyOf": [
-        {
-          "$comment": "This is the schema for the top-level fields in a Collection. Remove this if this extension does not define top-level fields for Collections.",
-          "allOf": [
-            {
-              "$comment": "Require fields here for Collections (top-level).",
-              "required": [
-                "cf:parameter"
-              ]
-            },
+        "summaries": {
+          "oneOf": [
             {
               "$ref": "#/definitions/fields"
+            },
+            {
+              "$comment": "JSON Schema summary",
+              "type": "object",
+              "properties": {
+                "cf:parameter": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "const": "array"
+                    }
+                  }
+                }
+              },
+              "patternProperties": {
+                "^(?!cf:)": {
+                  "$comment": "Above, change `cf` to the prefix of this extension"
+                }
+              },
+              "additionalProperties": false
             }
           ]
+        }
+      },
+      "if": {
+        "$comment": "If an asset contains cf:parameter, then allow it in Collection, else forbid it.",
+        "$ref": "#/definitions/cf_in_assets"
+      },
+      "then": {
+        "$ref": "#/definitions/fields"
+      },
+      "else": {
+        "$ref": "#/definitions/forbid_fields"
+      }
+    },
+    {
+      "$comment": "Schema for Items",
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "const": "Feature"
         },
+        "properties": {
+          "$ref": "#/definitions/fields"
+        }
+      },
+      "allOf": [
         {
-          "$comment": "This validates the fields in Collection Assets, but does not require them.",
-          "required": [
-            "assets"
-          ],
-          "properties": {
-            "assets": {
-              "type": "object",
-              "not": {
-                "additionalProperties": {
-                  "not": {
-                    "allOf": [
-                      {
-                        "$ref": "#/definitions/require_any_field"
-                      },
-                      {
-                        "$ref": "#/definitions/fields"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "$comment": "This is the schema for the fields in Item Asset Definitions. It doesn't require any fields.",
-          "required": [
-            "item_assets"
-          ],
-          "properties": {
-            "item_assets": {
-              "type": "object",
-              "not": {
-                "additionalProperties": {
-                  "not": {
-                    "allOf": [
-                      {
-                        "$ref": "#/definitions/require_any_field"
-                      },
-                      {
-                        "$ref": "#/definitions/fields"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "$comment": "This is the schema for the fields in Summaries. By default, only checks the existence of the properties, but not the schema of the summaries.",
-          "required": [
-            "summaries"
-          ],
-          "properties": {
-            "summaries": {
-              "$ref": "#/definitions/require_any_field"
-            }
-          }
+          "$ref": "#/definitions/cf_in_assets"
         }
       ]
     }
   ],
   "definitions": {
-    "stac_extensions": {
-      "type": "object",
+    "cf_in_assets": {
       "required": [
-        "stac_extensions"
+        "assets"
       ],
       "properties": {
-        "stac_extensions": {
-          "type": "array",
-          "contains": {
-            "const": "https://stac-extensions.github.io/cf/v1.0.0/schema.json"
+        "assets": {
+          "not": {
+            "additionalProperties": {
+              "not": {
+                "allOf": [
+                  {
+                    "required": [
+                      "cf:parameter"
+                    ]
+                  },
+                  {
+                    "$ref": "#/definitions/fields"
+                  }
+                ]
+              }
+            }
           }
         }
       }
     },
-    "require_any_field": {
-      "$comment": "Please list all fields here so that we can force the existence of one of them in other parts of the schemas.",
-      "anyOf": [
-        {"required": ["cf:parameter"]}
-      ]
+    "forbid_fields": {
+      "patternProperties": {
+        "^(?!cf:)": {}
+      },
+      "additionalProperties": false
     },
     "fields": {
-      "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
         "cf:parameter": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "type": "object",
             "required": [
