@@ -37,20 +37,20 @@
           "unit": "K"
         },
         {
-          "name": "z",
+          "name": "depth",
           "unit": "m"
         }
       ]
     },
-    "land_surface_temperature": {
+    "sea_ice_surface_temperature": {
       "type": "application/netcdf",
       "cf:parameter": [
         {
-          "name": "land_surface_temperature",
+          "name": "sea_ice_surface_temperature",
           "unit": "K"
         },
         {
-          "name": "z",
+          "name": "depth",
           "unit": "m"
         }
       ]
@@ -67,11 +67,11 @@
         "unit": "K"
       },
       {
-        "name": "land_surface_temperature",
+        "name": "sea_ice_surface_temperature",
         "unit": "K"
       },
       {
-        "name": "z",
+        "name": "depth",
         "unit": "m"
       }
     ]
