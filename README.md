@@ -1,18 +1,20 @@
 # CF Extension Specification
 
 - **Title:** CF
-- **Identifier:** <https://stac-extensions.github.io/cf/v1.0.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/cf/v0.1.0/schema.json>
 - **Field Name Prefix:** cf
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @Fred-Leclercq
 
 This document explains the CF Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-This is the place to add a short introduction.
+It adds a field to provide the Standard Name Table based on the [CF metadata convention](http://cfconventions.org/).
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
+  - [Item](examples/item.json) and [Collection](examples/collection.json):
+    Shows the basic usage of the extension in a STAC Item and a corresponding summarizing STAC Collection
+  - [Standalone Collection](examples/standalone_collection.json):
+    Shows the basic usage of the extension in a STAC Collection without items
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
@@ -33,8 +35,9 @@ The fields in the table below can be used in these parts of STAC documents:
 
 #### cf:parameter
 
-The `cf:parameter` array is used to describe the parameters in an Asset. This enables clients to read
-the file and understand which parameters are available. 
+The `cf:parameter` array is used to describe the parameters in an Asset.
+It requires at least one entry with a non-empty name.
+This enables clients to read the file and understand which parameters are available. 
 
 The `cf:parameter` array may optionally be used in the Item Properties or Collection to summarize the available parameters in the assets.
 This should be a 'union' of all the possible parameters represented in assets. It should be considered merely informative - clients should rely on 
@@ -46,9 +49,9 @@ An Item or Collection is only allowed to use `cf:parameter` in its Properties if
 This object should contain a variable name from the [CF list](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html) 
 and where applicable a unit from the  [UDUNITS-2 database](https://docs.unidata.ucar.edu/udunits/current/)
 
-| Field Name | Type   | Description                                                                                   |
-|------------|--------|-----------------------------------------------------------------------------------------------|
-| name       | string | **REQUIRED**. Should be a value from the CF standard names list                               |
+| Field Name | Type   | Description |
+| ---------- | ------ | ----------- |
+| name       | string | **REQUIRED**. Should be a non-empty value from the CF standard names list |
 | unit       | string | Indicates the unit, preferably available in the database from the UDUNITS-2 package (unidata) |
 
 ## Contributing

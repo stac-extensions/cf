@@ -1,6 +1,8 @@
 {
   "stac_version": "1.0.0",
-  "stac_extensions": [],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/cf/v0.1.0/schema.json"
+  ],
   "type": "Feature",
   "id": "item",
   "bbox": [
@@ -44,6 +46,10 @@
         "unit": "K"
       },
       {
+        "name": "sea_ice_surface_temperature",
+        "unit": "K"
+      },
+      {
         "name": "depth",
         "unit": "m"
       }
@@ -53,12 +59,49 @@
     {
       "href": "https://example.com/examples/item.json",
       "rel": "self"
+    },
+    {
+      "href": "./collection.json",
+      "rel": "collection"
+    },
+    {
+      "href": "./collection.json",
+      "rel": "parent"
+    },
+    {
+      "href": "./collection.json",
+      "rel": "root"
     }
   ],
   "assets": {
-    "data": {
-      "href": "https://example.com/examples/file.nc",
-      "type": "application/netcdf"
+    "sea_surface_temperature": {
+      "href": "https://example.com/examples/sea_surface_temperature.nc",
+      "type": "application/netcdf",
+      "cf:parameter": [
+        {
+          "name": "sea_surface_temperature",
+          "unit": "K"
+        },
+        {
+          "name": "depth",
+          "unit": "m"
+        }
+      ]
+    },
+    "sea_ice_surface_temperature": {
+      "href": "https://example.com/examples/sea_ice_surface_temperature.nc",
+      "type": "application/netcdf",
+      "cf:parameter": [
+        {
+          "name": "sea_ice_surface_temperature",
+          "unit": "K"
+        },
+        {
+          "name": "depth",
+          "unit": "m"
+        }
+      ]
     }
-  }
+  },
+  "collection": "collection"
 }
