@@ -1,7 +1,7 @@
 # CF Extension Specification
 
 - **Title:** CF
-- **Identifier:** <https://stac-extensions.github.io/cf/v0.1.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/cf/v0.2.0/schema.json>
 - **Field Name Prefix:** cf
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
@@ -35,14 +35,18 @@ The fields in the table below can be used in these parts of STAC documents:
 
 #### cf:parameter
 
-The `cf:parameter` array is used to describe the parameters in an Asset.
+The `cf:parameter` array is used to describe the parameters in an Asset or Collection.
 It requires at least one entry with a non-empty name.
 This enables clients to read the file and understand which parameters are available. 
 
-The `cf:parameter` array may optionally be used in the Item Properties or Collection to summarize the available parameters in the assets.
-This should be a 'union' of all the possible parameters represented in assets. It should be considered merely informative - clients should rely on 
-the `cf:parameter` of each asset.  
-An Item or Collection is only allowed to use `cf:parameter` in its Properties if it has at least one asset with a defined parameter array.
+If assets with a `cf:parameter` array are provided, the field may optionally be used in the
+Item Properties or Collection and it must summarize the available parameters in the assets.
+This must be the 'union' of all the possible parameters represented in assets.
+If no assets are provided in a Collection, the field can be used freely to describe the Collection for e.g. search.
+An Item is only allowed to use `cf:parameter` in its Properties if it has at least one asset with a defined parameter array.
+
+The `cf:parameter` list in Item Properties or Collections should be considered merely informative -
+clients should rely on the `cf:parameter` of each asset, if available.
 
 #### CF Object
 

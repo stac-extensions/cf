@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/cf/v0.1.0/schema.json#",
+  "$id": "https://stac-extensions.github.io/cf/v0.2.0/schema.json#",
   "title": "CF Extension",
   "description": "STAC CF Extension for STAC Items and STAC Collections.",
   "type": "object",
@@ -11,7 +11,7 @@
     "stac_extensions": {
       "type": "array",
       "contains": {
-        "const": "https://stac-extensions.github.io/cf/v0.1.0/schema.json"
+        "const": "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
       }
     },
     "assets": {
@@ -66,16 +66,11 @@
           ]
         }
       },
-      "if": {
-        "$comment": "If an asset contains cf:parameter, then allow it in Collection, else forbid it.",
-        "$ref": "#/definitions/cf_in_assets"
-      },
-      "then": {
-        "$ref": "#/definitions/fields"
-      },
-      "else": {
-        "$ref": "#/definitions/forbid_fields"
-      }
+      "allOf": [
+        {
+          "$ref": "#/definitions/fields"
+        }
+      ]
     },
     {
       "$comment": "Schema for Items",
