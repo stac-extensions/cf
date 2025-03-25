@@ -27,9 +27,9 @@ The fields in the table below can be used in these parts of STAC documents:
 - [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name   | Type                        | Description                          |
-| ------------ | --------------------------- | ------------------------------------ |
-| cf:parameter | \[[CF Object](#CF-object)\] | **REQUIRED**. CF Standard Name Table |
+| Field Name   | Type                        | Description                                                                         |
+| ------------ | --------------------------- | ----------------------------------------------------------------------------------- |
+| cf:parameter | \[[CF Object](#CF-object)\] | **REQUIRED**. Describes attributes of an environmental variable using CF convention |
 
 ### Additional Field Information
 
