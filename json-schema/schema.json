@@ -190,8 +190,11 @@
           "units": {
             "type": "string"
           },
-          "vertical_distance": {
-            "type": "number"
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
           }
         }
       }

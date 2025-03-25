@@ -52,7 +52,9 @@
             "standard_name": "height",
             "long_name": "Height above ground level",
             "units": "m",
-            "vertical_distance": "10"
+            "values": [
+              "10"
+            ]
           }
         }
       ]
@@ -79,7 +81,9 @@
           "standard_name": "height",
           "long_name": "Height above ground level",
           "units": "m",
-          "vertical_distance": "10"
+          "values": [
+            "10"
+          ]
         }
       }
     ]

@@ -56,10 +56,12 @@
           "standard_name": "height",
           "long_name": "Height above ground level",
           "units": "m",
-          "vertical_distance": "10"
+          "values": [
+            "10"
+          ]
         }
       }
-  ]
+    ]
   },
   "links": [
     {
@@ -85,12 +87,24 @@
       "type": "application/netcdf",
       "cf:parameter": [
         {
-          "name": "sea_surface_temperature",
-          "unit": "K"
+          "standard_name": "sea_surface_temperature",
+          "long_name": "Average temperature on sea surface for preceding 24 hours",
+          "units": "K",
+          "cell_methods": "t: mean (interval: -24h)"
         },
         {
-          "name": "depth",
-          "unit": "m"
+          "standard_name": "wind_speed",
+          "long_name": "minimum wind speed in 1 hour at 10 m agl",
+          "units": "kt",
+          "cell_methods": "t: minimum (interval: -1 h)",
+          "vertical_dimension": {
+            "standard_name": "height",
+            "long_name": "Height above ground level",
+            "units": "m",
+            "values": [
+              "10"
+            ]
+          }
         }
       ]
     },
@@ -99,12 +113,24 @@
       "type": "application/netcdf",
       "cf:parameter": [
         {
-          "name": "sea_ice_surface_temperature",
-          "unit": "K"
+          "standard_name": "sea_surface_temperature",
+          "long_name": "Average temperature on sea surface for preceding 24 hours",
+          "units": "K",
+          "cell_methods": "t: mean (interval: -24h)"
         },
         {
-          "name": "depth",
-          "unit": "m"
+          "standard_name": "wind_speed",
+          "long_name": "minimum wind speed in 1 hour at 10 m agl",
+          "units": "kt",
+          "cell_methods": "t: minimum (interval: -1 h)",
+          "vertical_dimension": {
+            "standard_name": "height",
+            "long_name": "Height above ground level",
+            "units": "m",
+            "values": [
+              "10"
+            ]
+          }
         }
       ]
     }
