@@ -42,18 +42,24 @@
     "datetime": "2020-12-11T22:38:32Z",
     "cf:parameter": [
       {
-        "name": "sea_surface_temperature",
-        "unit": "K"
+        "standard_name": "sea_surface_temperature",
+        "long_name": "Average temperature on sea surface for preceding 24 hours",
+        "units": "K",
+        "cell_methods": "t: mean (interval: -24h)"
       },
       {
-        "name": "sea_ice_surface_temperature",
-        "unit": "K"
-      },
-      {
-        "name": "depth",
-        "unit": "m"
+        "standard_name": "wind_speed",
+        "long_name": "minimum wind speed in 1 hour at 10 m agl",
+        "units": "kt",
+        "cell_methods": "t: minimum (interval: -1 h)",
+        "vertical_dimension": {
+          "standard_name": "height",
+          "long_name": "Height above ground level",
+          "units": "m",
+          "vertical_distance": "10"
+        }
       }
-    ]
+  ]
   },
   "links": [
     {

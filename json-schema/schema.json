@@ -134,16 +134,33 @@
           "items": {
             "type": "object",
             "required": [
-              "name"
+              "standard_name",
+              "units"
             ],
             "properties": {
-              "name": {
+              "standard_name": {
+                "title": "CF standard_name field",
                 "type": "string",
                 "minLength": 1
               },
-              "unit": {
-                "type": "string"
+              "long_name": {
+                "title": "CF long_name field",
+                "type": "string",
+                "minLength": 1
+              },
+              "units": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cell_methods": {
+                "type": "string",
+                "minLength": 1
+              },
+              "vertical_dimension": {
+                "$ref": "#/definitions/vertical_dimension"
+
               }
+
             }
           }
         }
@@ -154,6 +171,30 @@
         }
       },
       "additionalProperties": false
+    },
+    "vertical_dimension": {
+      "title": "Vertical Dimension Object",
+      "type": "object",
+      "items": {
+        "required": [
+          "standard_name",
+          "units"
+        ],
+        "properties":{
+          "standard_name": {
+            "type": "string"
+          },
+          "long_name": {
+            "type": "string"
+          },
+          "units": {
+            "type": "string"
+          },
+          "vertical_distance": {
+            "type": "number"
+          }
+        }
+      }
     }
   }
 }
