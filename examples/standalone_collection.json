@@ -28,28 +28,32 @@
       ]
     }
   },
-  "cf:parameter": [
-    {
-      "standard_name": "sea_surface_temperature",
-      "long_name": "Average temperature on sea surface for preceding 24 hours",
-      "units": "K",
-      "cell_methods": "t: mean (interval: -24h)"
-    },
-    {
-      "standard_name": "wind_speed",
-      "long_name": "minimum wind speed in 1 hour at 10 m agl",
-      "units": "kt",
-      "cell_methods": "t: minimum (interval: -1 h)",
-      "vertical_dimension": {
-        "standard_name": "height",
-        "long_name": "Height above ground level",
-        "units": "m",
-        "values": [
-          "10"
-        ]
+  "summaries": {
+    "cf:parameter": [
+      {
+        "standard_name": "sea_surface_temperature",
+        "long_name": "Average temperature on sea surface for preceding 24 hours",
+        "units": "K",
+        "cell_methods": "t: mean (interval: -24h)",
+        "asset_variable_name": "sst"
+      },
+      {
+        "standard_name": "wind_speed",
+        "long_name": "minimum wind speed in 1 hour at 10 m agl",
+        "units": "kt",
+        "cell_methods": "t: minimum (interval: -1 h)",
+        "asset_variable_name": "ws_min_1h",
+        "vertical_dimension": {
+          "standard_name": "height",
+          "long_name": "Height above ground level",
+          "units": "m",
+          "values": [
+            "10"
+          ]
+        }
       }
-    }
-  ],
+    ]
+  },
   "assets": {
     "example": {
       "href": "https://example.com/examples/example.nc",
@@ -58,13 +62,15 @@
           "standard_name": "sea_surface_temperature",
           "long_name": "Average temperature on sea surface for preceding 24 hours",
           "units": "K",
-          "cell_methods": "t: mean (interval: -24h)"
+          "cell_methods": "t: mean (interval: -24h)",
+          "asset_variable_name": "sst"
         },
         {
           "standard_name": "wind_speed",
           "long_name": "minimum wind speed in 1 hour at 10 m agl",
           "units": "kt",
           "cell_methods": "t: minimum (interval: -1 h)",
+          "asset_variable_name": "ws_min_1h",
           "vertical_dimension": {
             "standard_name": "height",
             "long_name": "Height above ground level",
