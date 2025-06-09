@@ -150,7 +150,7 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
           }
         }
       }
@@ -158,84 +158,74 @@
     "require_any_field": {
       "$comment": "Please list all fields here so that we can force the existence of one of them in other parts of the schemas.",
       "anyOf": [
-        {"required": ["cf:parameter"]}
+        {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "standard_name",
+                "long_name"
+              ],
+              "properties": {
+                "standard_name": {
+                  "title": "CF standard_name field",
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 0
+                },
+                "long_name": {
+                  "title": "CF long_name field",
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "standard_name"
+              ],
+              "properties": {
+                "standard_name": {
+                  "title": "CF standard_name field",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "long_name": {
+                  "title": "CF long_name field",
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        }
       ]
     },
     "fields": {
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
-        "cf:parameter": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "required": [
-                      "standard_name",
-                      "long_name"
-                    ],
-                    "properties": {
-                      "standard_name": {
-                        "title": "CF standard_name field",
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 0
-                      },
-                      "long_name": {
-                        "title": "CF long_name field",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "required": [
-                      "standard_name"
-                    ],
-                    "properties": {
-                      "standard_name": {
-                        "title": "CF standard_name field",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "long_name": {
-                        "title": "CF long_name field",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "object",
-                "required": [
-                  "units"
-                ],
-                "properties": {
-                "units": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "cell_methods": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "asset_variable_name": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "vertical_dimension": {
-                    "$ref": "#/definitions/vertical_dimension"
-                  }
-                }
-              }
-            ]
-          }
+        "cf:standard_name": {
+          "title": "CF standard_name",
+          "type": "string"
+        },
+        "cf:long_name": {
+          "title": "CF long_name field",
+          "type": "string",
+          "minLength": 1
+        },
+        "cf:units": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cf:cell_methods": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cf:asset_variable_name": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "patternProperties": {
@@ -244,34 +234,6 @@
         }
       },
       "additionalProperties": false
-    },
-    "vertical_dimension": {
-      "title": "Vertical Dimension",
-      "type": "object",
-      "items": {
-        "required": [
-          "standard_name",
-          "units"
-        ],
-        "properties":{
-          "standard_name": {
-            "type": "string"
-          },
-          "long_name": {
-            "type": "string"
-          },
-          "units": {
-            "type": "string"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "type": "number"
-            }
-          }
-        }
-      }
     }
-
   }
 }

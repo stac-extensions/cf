@@ -1,7 +1,7 @@
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
   ],
   "type": "Feature",
   "id": "item",
@@ -40,104 +40,28 @@
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "cf:parameter": [
-      {
-        "standard_name": "sea_surface_temperature",
-        "long_name": "Average temperature on sea surface for preceding 24 hours",
-        "units": "K",
-        "cell_methods": "t: mean (interval: -24h)"
-      },
-      {
-        "standard_name": "wind_speed",
-        "long_name": "minimum wind speed in 1 hour at 10 m agl",
-        "units": "kt",
-        "cell_methods": "t: minimum (interval: -1 h)",
-        "vertical_dimension": {
-          "standard_name": "height",
-          "long_name": "Height above ground level",
-          "units": "m",
-          "values": [
-            "10"
-          ]
-        }
-      }
+    "template:new_field": "test",
+    "template:xyz": {
+      "x": 1,
+      "y": 2,
+      "z": 3
+    },
+    "template:another_one": [
+      1,
+      2,
+      3
     ]
   },
   "links": [
     {
       "href": "https://example.com/examples/item.json",
       "rel": "self"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "collection"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "parent"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "root"
     }
   ],
   "assets": {
-    "sea_surface_temperature": {
-      "href": "https://example.com/examples/sea_surface_temperature.nc",
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "standard_name": "sea_surface_temperature",
-          "long_name": "Average temperature on sea surface for preceding 24 hours",
-          "units": "K",
-          "cell_methods": "t: mean (interval: -24h)",
-          "asset_variable_name": "sst"
-        },
-        {
-          "standard_name": "wind_speed",
-          "long_name": "minimum wind speed in 1 hour at 10 m agl",
-          "units": "kt",
-          "cell_methods": "t: minimum (interval: -1 h)",
-          "asset_variable_name": "ws_min_1h",
-          "vertical_dimension": {
-            "standard_name": "height",
-            "long_name": "Height above ground level",
-            "units": "m",
-            "values": [
-              "10"
-            ]
-          }
-        }
-      ]
-    },
-    "sea_ice_surface_temperature": {
-      "href": "https://example.com/examples/sea_ice_surface_temperature.nc",
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "standard_name": "sea_surface_temperature",
-          "long_name": "Average temperature on sea surface for preceding 24 hours",
-          "units": "K",
-          "cell_methods": "t: mean (interval: -24h)",
-          "asset_variable_name": "sst"
-        },
-        {
-          "standard_name": "wind_speed",
-          "long_name": "minimum wind speed in 1 hour at 10 m agl",
-          "units": "kt",
-          "cell_methods": "t: minimum (interval: -1 h)",
-          "asset_variable_name": "ws_min_1h",
-          "vertical_dimension": {
-            "standard_name": "height",
-            "long_name": "Height above ground level",
-            "units": "m",
-            "values": [
-              "10"
-            ]
-          }
-        }
-      ]
+    "data": {
+      "href": "https://example.com/examples/file.xyz",
+      "template:new_field": "test"
     }
-  },
-  "collection": "collection"
+  }
 }

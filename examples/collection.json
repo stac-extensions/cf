@@ -1,11 +1,12 @@
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
   ],
   "type": "Collection",
   "id": "collection",
-  "title": "Collection with an Item",
+  "title": "A title",
   "description": "A description",
   "license": "Apache-2.0",
   "extent": {
@@ -28,59 +29,18 @@
       ]
     }
   },
+  "assets": {
+    "example": {
+      "href": "https://example.com/examples/file.xyz",
+      "template:new_field": "test"
+    }
+  },
   "item_assets": {
-    "sea_surface_temperature": {
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "standard_name": "sea_surface_temperature",
-          "long_name": "Average temperature on sea surface for preceding 24 hours",
-          "units": "K",
-          "cell_methods": "t: mean (interval: -24h)"
-        },
-        {
-          "standard_name": "air_temperature",
-          "long_name": "24-hour maximum air temperature at 2 m agl",
-          "units": "degC",
-          "cell_methods": "t: maximum (interval: -24 h)",
-          "asset_variable_name": "ws_min_1h",
-          "vertical_dimension": {
-            "standard_name": "height",
-            "long_name": "Height above ground level",
-            "units": "m",
-            "values": [
-              "2"
-            ]
-          }
-        }
-      ]
-    },
-    "observation_time_series": {
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "standard_name": "sea_surface_temperature",
-          "long_name": "Average temperature on sea surface for preceding 24 hours",
-          "units": "K",
-          "cell_methods": "t: mean (interval: -24h)",
-          "asset_variable_name": "sst"
-        },
-        {
-          "standard_name": "wind_speed",
-          "long_name": "minimum wind speed in 1 hour at 10 m agl",
-          "units": "kt",
-          "cell_methods": "t: minimum (interval: -1 h)",
-          "asset_variable_name": "ws_min_1h",
-          "vertical_dimension": {
-            "standard_name": "height",
-            "long_name": "Height above ground level",
-            "units": "m",
-            "values": [
-              "10"
-            ]
-          }
-        }
-      ]
+    "data": {
+      "roles": [
+        "data"
+      ],
+      "template:new_field": "test"
     }
   },
   "summaries": {
@@ -88,30 +48,80 @@
       "minimum": "2015-06-23T00:00:00Z",
       "maximum": "2019-07-10T13:44:56Z"
     },
-    "cf:parameter": [
-      {
-        "standard_name": "sea_surface_temperature",
-        "long_name": "Average temperature on sea surface for preceding 24 hours",
-        "units": "K",
-        "cell_methods": "t: mean (interval: -24h)",
-        "asset_variable_name": "sst"
+    "cube:dimensions": {
+      "time_interval1": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -24
+        ],
+        "unit": "h"
       },
-      {
-        "standard_name": "wind_speed",
-        "long_name": "minimum wind speed in 1 hour at 10 m agl",
-        "units": "kt",
-        "cell_methods": "t: minimum (interval: -1 h)",
-        "asset_variable_name": "ws_min_1h",
-        "vertical_dimension": {
-          "standard_name": "height",
-          "long_name": "Height above ground level",
-          "units": "m",
-          "values": [
-            "10"
-          ]
-        }
+      "vertical_dimension1": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Height above ground level",
+        "unit": "m",
+        "values": [
+          10
+        ]
+      },
+      "time_interval2": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -60
+        ],
+        "unit": "min"
+      },
+      "vertical_dimension2": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Air pressure",
+        "cf:long_name": "",
+        "unit": "hPa",
+        "values": [
+          500
+        ]
       }
-    ]
+    },
+    "cube:variables": {
+      "sea_surface_temperature": {
+        "type": "data",
+        "cf:standard_name": "sea_surface_temperature",
+        "description": "Average temperature on sea surface for preceding 24 hours",
+        "cf:long_name": "Average temperature on sea surface for preceding 24 hours",
+        "unit": "K",
+        "cf:cell_methods": "time: mean",
+        "dimensions": [
+          "time_interval1"
+        ]
+      },
+      "wind_speed_at_10m": {
+        "type": "data",
+        "cf:standard_name": "wind_speed",
+        "description": "minimum wind speed in 1 hour at 10 m agl",
+        "cf:long_name": "minimum wind speed in 1 hour at 10 m agl",
+        "units": "kt",
+        "cf:cell_methods": "time: minimum",
+        "dimensions": [
+          "vertical_dimension1",
+          "time_interval2"
+        ]
+      },
+      "temp_at_500hPa": {
+        "type": "data",
+        "cf:standard_name": "air_temperature",
+        "description": "air temperature at 500 hPa",
+        "cf:long_name": "air temperature at 500 hPa",
+        "units": "degC",
+        "dimensions": [
+          "vertical_dimension2"
+        ]
+      }
+    }
   },
   "links": [
     {
@@ -119,7 +129,7 @@
       "rel": "self"
     },
     {
-      "href": "./item.json",
+      "href": "https://example.com/examples/item.json",
       "rel": "item"
     }
   ]
