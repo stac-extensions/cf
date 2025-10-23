@@ -27,15 +27,11 @@ The fields in the table below can be used in these parts of STAC documents:
 
 | Field Name   | Type                        | Description                                                                         |
 | ------------ | --------------------------- | ----------------------------------------------------------------------------------- |
-| cf:standard_name | string | Should be a non-empty value from the 
-[CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html) if variable 
-has a standard_name definition in the CF convention. Otherwise standard_name remains an empty value. |
+| cf:standard_name | string | Should be a non-empty value from the [CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html) if variable has a standard_name definition in the CF convention. Otherwise standard_name remains an empty value. |
 | cf:cell_methods       | \[string] | This is a list of string attributes that describe the "method" applied to the data as 
 defined in the CF conventions. |
-| cf:long_name          | string | When using this CF extension within another extension that does not have a "description" 
-field defined, this field name can be used for a long descriptive name of the variable as defined in the CF conventions. |
-| cf:units              | string | When using this CF extension within another extension that does not have a "unit" field 
-defined, this field name can be used for specifying the unit of the variable. |
+| cf:long_name          | string | When using this CF extension within another extension that does not have a "description" field defined, this field name can be used for a long descriptive name of the variable as defined in the CF conventions. |
+| cf:units              | string | When using this CF extension within another extension that does not have a "unit" field defined, this field name can be used for specifying the unit of the variable. |
 
 ### Additional Field Information
 
