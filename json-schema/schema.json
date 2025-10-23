@@ -157,49 +157,13 @@
     },
     "require_any_field": {
       "$comment": "Please list all fields here so that we can force the existence of one of them in other parts of the schemas.",
-      "anyOf": [
-        {
-          "oneOf": [
-            {
-              "type": "object",
-              "required": [
-                "standard_name",
-                "long_name"
-              ],
-              "properties": {
-                "standard_name": {
-                  "title": "CF standard_name field",
-                  "type": "string",
-                  "minLength": 0,
-                  "maxLength": 0
-                },
-                "long_name": {
-                  "title": "CF long_name field",
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            },
-            {
-              "type": "object",
-              "required": [
-                "standard_name"
-              ],
-              "properties": {
-                "standard_name": {
-                  "title": "CF standard_name field",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "long_name": {
-                  "title": "CF long_name field",
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            }
-          ]
-        }
+       "anyOf": [
+        {"required": [
+            "cf:standard_name",
+            "cf:long_name",
+            "cf:units",
+            "cf:cell_methods"
+        ]}
       ]
     },
     "fields": {
@@ -220,12 +184,11 @@
           "minLength": 1
         },
         "cf:cell_methods": {
-          "type": "string",
-          "minLength": 1
-        },
-        "cf:asset_variable_name": {
-          "type": "string",
-          "minLength": 1
+          "type": "array",
+            "items": {
+            "type": "string",
+            "minLength": 1
+          }          
         }
       },
       "patternProperties": {

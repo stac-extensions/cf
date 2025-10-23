@@ -30,16 +30,14 @@
   },
   "assets": {
     "example": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
+      "href": "https://example.com/examples/file.xyz"
     }
   },
   "item_assets": {
     "data": {
       "roles": [
         "data"
-      ],
-      "template:new_field": "test"
+      ]
     }
   },
   "summaries": {
@@ -79,7 +77,6 @@
         "axis": "z",
         "cf:standard_name": "height",
         "description": "Air pressure",
-        "cf:long_name": "",
         "unit": "hPa",
         "values": [
           500
@@ -91,7 +88,6 @@
         "type": "data",
         "cf:standard_name": "sea_surface_temperature",
         "description": "Average temperature on sea surface for preceding 24 hours",
-        "cf:long_name": "Average temperature on sea surface for preceding 24 hours",
         "unit": "K",
         "cf:cell_methods": "time: mean",
         "dimensions": [
@@ -102,8 +98,7 @@
         "type": "data",
         "cf:standard_name": "wind_speed",
         "description": "minimum wind speed in 1 hour at 10 m agl",
-        "cf:long_name": "minimum wind speed in 1 hour at 10 m agl",
-        "units": "kt",
+        "unit": "kt",
         "cf:cell_methods": "time: minimum",
         "dimensions": [
           "vertical_dimension1",
@@ -114,8 +109,7 @@
         "type": "data",
         "cf:standard_name": "air_temperature",
         "description": "air temperature at 500 hPa",
-        "cf:long_name": "air temperature at 500 hPa",
-        "units": "degC",
+        "unit": "degC",
         "dimensions": [
           "vertical_dimension2"
         ]

@@ -1,56 +1,35 @@
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
   ],
-  "type": "Feature",
-  "id": "item",
-  "bbox": [
-    172.9,
-    1.3,
-    173,
-    1.4
-  ],
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-      [
+  "type": "Collection",
+  "id": "standalone_collection",
+  "title": "Collection without Items",
+  "description": "A description",
+  "license": "Apache-2.0",
+  "extent": {
+    "spatial": {
+      "bbox": [
         [
           172.9,
-          1.3
-        ],
-        [
-          173,
-          1.3
-        ],
-        [
+          1.3,
           173,
           1.4
-        ],
-        [
-          172.9,
-          1.4
-        ],
-        [
-          172.9,
-          1.3
         ]
       ]
-    ]
-  },
-  "properties": {
-    "datetime": "2020-12-11T22:38:32Z",
-    "template:new_field": "test",
-    "template:xyz": {
-      "x": 1,
-      "y": 2,
-      "z": 3
     },
-    "template:another_one": [
-      1,
-      2,
-      3
-    ],
+    "temporal": {
+      "interval": [
+        [
+          "2015-06-23T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "summaries": {
+    "cf:standard_name": "height",
     "cube:dimensions": {
       "time_interval1": {
         "type": "temporal",
@@ -122,16 +101,15 @@
       }
     }
   },
+  "assets": {
+    "example": {
+      "href": "https://example.com/examples/example.nc"
+    }
+  },
   "links": [
     {
-      "href": "https://example.com/examples/item.json",
+      "href": "https://example.com/examples/standalone_collection.json",
       "rel": "self"
     }
-  ],
-  "assets": {
-    "data": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
-    }
-  }
+  ]
 }
