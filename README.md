@@ -29,7 +29,7 @@ The fields in the table below can be used in these parts of STAC documents:
 | ------------ | --------------------------- | ----------------------------------------------------------------------------------- |
 | cf:standard_name | string | Should be a non-empty value from the [CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html) if variable has a standard_name definition in the CF convention. Otherwise standard_name remains an empty value. |
 | cf:cell_methods | \[string] | This is a list of string attributes that describe the "method" applied to the data as defined in the CF conventions. |
-| description  string | This field contains the [CF "long_name"](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/build/ch03s02.html) information. |
+| description | string | This field contains the [CF "long_name"](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/build/ch03s02.html) information. |
 | unit | string | This field contains the [CF "units" information]{https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#units} information. |
 
 ### Additional Field Information
