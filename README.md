@@ -37,8 +37,9 @@ The fields in the table below can be used in these parts of STAC documents:
 #### cf:cell_methods
 The cell_methods attribute in the CF (Climate and Forecast) convention is designed to describe how the values in a data variable 
 were derived with respect to one or more axes (e.g., time, latitude, longitude). Each "method" represents the statistical or 
-computational operations applied to data along specific axes. For example, if used within the datacube extension then the order of cell_methods aligns with the order of spatial and temporal extensions.
-```
+computational operations applied to data along specific axes. For example, if used within the datacube extension then the 
+order of cell_methods aligns with the order of spatial and temporal extensions.
+```json
 "cube:variables": {
   "some_variable": {
     "cf:cell_methods": [null, "minimum"],
@@ -58,8 +59,12 @@ name which may, for example, be used for labeling plots.
 See [CF conventions](https://cfconventions.org/cf-conventions/cf-conventions.html#long-name) for more details.
 
 #### unit
-The unit of measurement for the values, preferably compliant to [UCUM](https://ucum.org/[) (unit code) or [UDUNITS-2](https://ncics.org/portfolio/other-resources/udunits2/) (unit symbol or alternatively singular unit name). 
-Unit is not required for dimensionless quantities. A variable with no unit attribute is assumed to be dimensionless. The conforming unit for quantities that represent fractions, or parts of a whole, is "1". Descriptive information about dimensionless quantities, such as sea-ice concentration, cloud fraction, probability, etc., should be given in the "description" attribute rather than the unit field.
+The unit of measurement for the values, preferably compliant to [UCUM](https://ucum.org/[) (unit code) 
+or [UDUNITS-2](https://ncics.org/portfolio/other-resources/udunits2/) (unit symbol or alternatively singular unit name). 
+Unit is not required for dimensionless quantities. A variable with no unit attribute is assumed to be 
+dimensionless. The conforming unit for quantities that represent fractions, or parts of a whole, is "1". 
+Descriptive information about dimensionless quantities, such as sea-ice concentration, cloud fraction, 
+probability, etc., should be given in the "description" attribute rather than the unit field.
 
 ## Contributing
 

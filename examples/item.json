@@ -95,7 +95,7 @@
         "cf:standard_name": "sea_surface_temperature",
         "description": "Average temperature on sea surface for preceding 24 hours",
         "unit": "K",
-        "cf:cell_methods": "time: mean",
+        "cf:cell_methods": ["mean"],
         "dimensions": [
           "time_interval1"
         ]
@@ -105,7 +105,7 @@
         "cf:standard_name": "wind_speed",
         "description": "minimum wind speed in 1 hour at 10 m agl",
         "unit": "kt",
-        "cf:cell_methods": "time: minimum",
+        "cf:cell_methods": ["minimum"],
         "dimensions": [
           "vertical_dimension1",
           "time_interval2"
