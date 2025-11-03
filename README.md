@@ -59,6 +59,7 @@ See [CF conventions](https://cfconventions.org/cf-conventions/cf-conventions.htm
 
 #### unit
 The unit of measurement for the values, preferably compliant to [UCUM](https://ucum.org/[) (unit code) or [UDUNITS-2](https://ncics.org/portfolio/other-resources/udunits2/) (unit symbol or alternatively singular unit name). 
+Unit is not required for dimensionless quantities. A variable with no unit attribute is assumed to be dimensionless. The conforming unit for quantities that represent fractions, or parts of a whole, is "1". Descriptive information about dimensionless quantities, such as sea-ice concentration, cloud fraction, probability, etc., should be given in the "description" attribute rather than the unit field.
 
 ## Contributing
 

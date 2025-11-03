@@ -160,8 +160,8 @@
        "anyOf": [
         {"required": [
             "cf:standard_name",
-            "cf:long_name",
-            "cf:units",
+            "description",
+            "unit",
             "cf:cell_methods"
         ]}
       ]
@@ -174,12 +174,12 @@
           "title": "CF standard_name",
           "type": "string"
         },
-        "cf:long_name": {
+        "description": {
           "title": "CF long_name field",
           "type": "string",
           "minLength": 1
         },
-        "cf:units": {
+        "unit": {
           "type": "string",
           "minLength": 1
         },
