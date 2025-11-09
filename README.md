@@ -50,7 +50,7 @@ order of cell_methods aligns with the order of spatial and temporal extensions.
   }
 }
 ```
-In this case no method is applied over the vertical_dimension1 but the "minimum" method is applied over the temporal dimension time_interval2.
+In this case no method is applied over the vertical_dimension1 but the "minimum" method is applied over the temporal dimension time_interval2. These dimensions are defined in the cube:dimensions fields.
 See [CF Cell Methods](https://cfconventions.org/cf-conventions/cf-conventions.html#cell-methods) for more details.
 
 #### description
