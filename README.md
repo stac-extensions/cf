@@ -29,8 +29,8 @@ The fields in the table below can be used in these parts of STAC documents:
 | ------------ | --------------------------- | ----------------------------------------------------------------------------------- |
 | cf:standard_name | string | Should be a non-empty value from the [CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html) if variable has a standard_name definition in the CF convention. Otherwise standard_name remains an empty value. |
 | cf:cell_methods | \[string] | This is a list of string attributes that describe the "method" applied to the data as defined in the CF conventions. |
-| description | string | This field contains the [CF "long_name"](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/build/ch03s02.html) information. |
-| unit | string | This field contains the [CF "units" information](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#units) information. |
+| description | string | This field contains the [CF "long_name"](https://cfconventions.org/cf-conventions/cf-conventions.html#long-name) information. |
+| unit | string | This field contains the [CF "units" information]https://cfconventions.org/cf-conventions/cf-conventions.html#units) information. |
 
 ### Additional Field Information
 
@@ -54,7 +54,7 @@ In this case no method is applied over the vertical_dimension1 but the "minimum"
 
 If a data value is representative of variation over a combination of axes this approach is not sufficient \(e.g. the standard 
 deviation of topographic height within a longitude-latitude gridbox would have `cell_methods="lat: lon: standard_deviation"`\).
-Such `cell_methods` cannot be described in per dimension in an array and would need a plain string representation.
+Such `cell_methods` cannot be described as per dimension methods in an array and would need a plain string representation.
 
 See [CF Cell Methods](https://cfconventions.org/cf-conventions/cf-conventions.html#cell-methods) for more details.
 
@@ -70,6 +70,7 @@ Unit is not required for dimensionless quantities. A variable with no unit attri
 dimensionless. The conforming unit for quantities that represent fractions, or parts of a whole, is "1". 
 Descriptive information about dimensionless quantities, such as sea-ice concentration, cloud fraction, 
 probability, etc., should be given in the "description" attribute rather than the unit field.
+See [CF Units](https://cfconventions.org/cf-conventions/cf-conventions.html#dimensionless-units) for more details.
 
 ## Contributing
 
