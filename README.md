@@ -50,7 +50,8 @@ order of cell_methods aligns with the order of spatial and temporal extensions.
   }
 }
 ```
-In this case no method is applied over the vertical_dimension1 but the "minimum" method is applied over the temporal dimension time_interval2. These dimensions are defined in the cube:dimensions fields.
+In this case no method is applied over the first dimension `vertical_dimension1` but the "minimum" method is applied over the second
+dimension `time_interval2`. These dimensions are defined in the cube:dimensions fields.
 
 If a data value is representative of variation over a combination of axes this approach is not sufficient \(e.g. the standard 
 deviation of topographic height within a longitude-latitude gridbox would have `cell_methods="lat: lon: standard_deviation"`\).
