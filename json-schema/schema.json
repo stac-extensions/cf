@@ -176,17 +176,13 @@
         },
         "description": {
           "title": "CF long_name field",
-          "type": "string",
-          "minLength": 1
+          "type": "string"
         },
         "unit": {
           "type": "string"
         },
         "cf:cell_methods": {
-          "anyOf": [
-            { "type": "string", "minLength": 1 },
-            { "type": "null" }
-          ]         
+          "type": "string"
         }
       },
       "patternProperties": {
