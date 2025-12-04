@@ -31,7 +31,7 @@ The fields in the table below can be used in these parts of STAC documents:
 | Field Name       | Type      | Description |
 | ---------------- | --------- | ----------- |
 | cf:standard_name | string    | Corresponds to the [CF Standard Name](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html). |
-| cf:cell_methods  | \[string] | A list of string attributes that describe the "method" applied to the data as defined in the CF conventions. |
+| cf:cell_methods  | \[string|null] | A list of string or `null` attributes that describe the "method" applied to the data as defined in the CF conventions. |
 | description      | string    | Corresponds to the [CF `long_name`](https://cfconventions.org/cf-conventions/cf-conventions.html#long-name). |
 | unit             | string    | Corresponds to the [CF `units`](https://cfconventions.org/cf-conventions/cf-conventions.html#units). |
 

@@ -97,6 +97,7 @@
         "description": "minimum wind speed in 1 hour at 10 m agl",
         "unit": "kt",
         "cf:cell_methods": [
+          null,
           "minimum"
         ],
         "dimensions": [
