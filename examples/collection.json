@@ -1,11 +1,11 @@
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/cf/v0.3.0/schema.json"
   ],
   "type": "Collection",
   "id": "collection",
-  "title": "Collection with an Item",
+  "title": "A title",
   "description": "A description",
   "license": "Apache-2.0",
   "extent": {
@@ -28,31 +28,15 @@
       ]
     }
   },
+  "assets": {
+    "example": {
+      "href": "https://example.com/examples/file.xyz"
+    }
+  },
   "item_assets": {
-    "sea_surface_temperature": {
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
-      ]
-    },
-    "sea_ice_surface_temperature": {
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_ice_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
+    "data": {
+      "roles": [
+        "data"
       ]
     }
   },
@@ -61,20 +45,81 @@
       "minimum": "2015-06-23T00:00:00Z",
       "maximum": "2019-07-10T13:44:56Z"
     },
-    "cf:parameter": [
-      {
-        "name": "sea_surface_temperature",
-        "unit": "K"
+    "cube:dimensions": {
+      "time_interval1": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -24
+        ],
+        "unit": "h"
       },
-      {
-        "name": "sea_ice_surface_temperature",
-        "unit": "K"
+      "vertical_dimension1": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Height above ground level",
+        "unit": "m",
+        "values": [
+          10
+        ]
       },
-      {
-        "name": "depth",
-        "unit": "m"
+      "time_interval2": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -60
+        ],
+        "unit": "min"
+      },
+      "vertical_dimension2": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Air pressure",
+        "unit": "hPa",
+        "values": [
+          500
+        ]
       }
-    ]
+    },
+    "cube:variables": {
+      "sea_surface_temperature": {
+        "type": "data",
+        "cf:standard_name": "sea_surface_temperature",
+        "description": "Average temperature on sea surface for preceding 24 hours",
+        "unit": "K",
+        "cf:cell_methods": [
+          "mean"
+        ],
+        "dimensions": [
+          "time_interval1"
+        ]
+      },
+      "wind_speed_at_10m": {
+        "type": "data",
+        "cf:standard_name": "wind_speed",
+        "description": "minimum wind speed in 1 hour at 10 m agl",
+        "unit": "kt",
+        "cf:cell_methods": [
+          null,
+          "minimum"
+        ],
+        "dimensions": [
+          "vertical_dimension1",
+          "time_interval2"
+        ]
+      },
+      "temp_at_500hPa": {
+        "type": "data",
+        "cf:standard_name": "air_temperature",
+        "description": "air temperature at 500 hPa",
+        "unit": "degC",
+        "dimensions": [
+          "vertical_dimension2"
+        ]
+      }
+    }
   },
   "links": [
     {
@@ -82,7 +127,7 @@
       "rel": "self"
     },
     {
-      "href": "./item.json",
+      "href": "https://example.com/examples/item.json",
       "rel": "item"
     }
   ]
