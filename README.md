@@ -8,7 +8,8 @@
 - **Owner**: @Fred-Leclercq
 
 This document explains the CF Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-It adds a field to provide the Standard Name Table based on the [CF metadata convention](http://cfconventions.org/).
+
+It adds fields to provide the properties that mirror the [CF metadata convention](http://cfconventions.org/).
 
 - Examples:
   - [Item](examples/item.json) and [Collection](examples/collection.json):
@@ -112,7 +113,7 @@ for running tests are copied here for convenience.
 
 ### Running tests
 
-The same checks that run as checks on PR's are part of the repository and can be run locally to verify that changes are valid.
+The same checks that run as checks on PRs are part of the repository and can be run locally to verify that changes are valid.
 To run tests locally, you'll need `npm`, which is a standard part of any [node.js installation](https://nodejs.org/en/download/).
 
 First you'll need to install everything with npm once. Just navigate to the root of this repository and on
