@@ -1,7 +1,7 @@
 # CF Extension Specification
 
 - **Title:** CF
-- **Identifier:** <https://stac-extensions.github.io/cf/v0.3.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/cf/v1.0.0/schema.json>
 - **Field Name Prefix:** cf
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
@@ -65,7 +65,7 @@ order of cell_methods aligns with the order of spatial and temporal extensions.
 }
 ```
 
-In this case `null` indicates that no method is applied over the first dimension `vertical_dimension1` but 
+In this case `null` indicates that no method is applied over the first dimension `vertical_dimension1` but
 the `minimum` method is applied over the second dimension `time_interval2`. 
 These dimensions would be defined in the `cube:dimensions` fields.
 
@@ -89,7 +89,7 @@ See [CF Cell Methods](https://cfconventions.org/cf-conventions/cf-conventions.ht
 
 #### description
 
-The description field as defined by the [NUG](https://docs.unidata.ucar.edu/nug/current/index.html) is meant to contain a long descriptive 
+The description field as defined by the [NUG](https://docs.unidata.ucar.edu/nug/current/index.html) is meant to contain a long descriptive
 name which may, for example, be used for labeling plots. 
 See [CF "long_name"](https://cfconventions.org/cf-conventions/cf-conventions.html#long-name) for more details.
 
