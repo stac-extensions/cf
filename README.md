@@ -24,10 +24,10 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Catalogs
 - [x] Collections
 - [x] Item Properties (incl. Summaries in Collections)
-- [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
+- [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections and Asset Templates)
+- [ ] Links (incl. Link Templates)
 - [x] Bands
 - [x] Data Cube Extension (`cube:variables`, `cube:dimensions`)
-- [ ] Links
 
 | Field Name       | Type      | Description |
 | ---------------- | --------- | ----------- |

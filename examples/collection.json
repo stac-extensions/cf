@@ -33,13 +33,6 @@
       "href": "https://example.com/examples/file.xyz"
     }
   },
-  "item_assets": {
-    "data": {
-      "roles": [
-        "data"
-      ]
-    }
-  },
   "summaries": {
     "datetime": {
       "minimum": "2015-06-23T00:00:00Z",
