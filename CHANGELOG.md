@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0]
+
 ### Added
 
 - Allow usage in Bands and the Data Cube Extension
-- Add `cf:cell_methods` (
+- Add `cf:cell_methods`
 - Explicitly list and allow `description` and `unit` to mirror their CF counter-parts
 
 ### Changed
@@ -33,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First release
 
-[Unreleased]: <https://github.com/stac-extensions/cf/compare/v0.2.0...HEAD>
+[Unreleased]: <https://github.com/stac-extensions/cf/compare/v1.0.0...HEAD>
+[1.0.0]: <https://github.com/stac-extensions/cf/compare/v0.2.0...1.0.0>
 [0.2.0]: <https://github.com/stac-extensions/cf/compare/v0.1.0...0.2.0>
 [0.1.0]: <https://github.com/stac-extensions/cf/tree/v0.1.0>
