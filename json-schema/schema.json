@@ -148,6 +148,16 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "table:columns": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          }
         }
       ]
     },

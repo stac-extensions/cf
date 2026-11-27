@@ -14,6 +14,8 @@ It adds fields to provide the properties that mirror the [CF metadata convention
 - Examples:
   - [Item](examples/item.json) and [Collection](examples/collection.json):
     Shows the basic usage of the extension in a STAC Item and a corresponding summarizing STAC Collection
+  - [Tabular Item](examples/item-table.json):
+    Shows usage of the extension in Table Extension columns (`table:columns`)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
@@ -28,6 +30,7 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Links (incl. Link Templates)
 - [x] Bands
 - [x] Data Cube Extension (`cube:variables`, `cube:dimensions`)
+- [x] Table Extension (`table:columns`)
 
 | Field Name       | Type      | Description |
 | ---------------- | --------- | ----------- |
