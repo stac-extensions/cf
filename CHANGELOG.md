@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Allow usage in the Table Extension (`table:columns`)
+
 ## [1.0.0]
 
 ### Added
